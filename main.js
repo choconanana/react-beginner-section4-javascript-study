@@ -121,3 +121,29 @@
 // const [name,age]=myProfile;
 // const message4=`名前は${name}です。年齢は${age}歳です。`
 // console.log(message4);
+
+
+/**
+ * デフォルト値(引数、分割代入)
+ */
+// const sayHello = (name="ゲスト") => console.log(`こんにちは！${name}さん！`);
+// sayHello("じゃけぇ");
+// sayHello();
+
+// const myProfile={
+//   age:31
+// };
+// const {age,name="ゲスト"}=myProfile;
+// console.log(age);
+// console.log(name);
+
+
+/**
+ * オブジェクトの省略記法
+ */
+const name="じゃけぇ";
+const age=31;
+
+// プロパティ名と設定する値の変数名が同じ場合、値を省略できる
+const myProfile={ name, age};
+console.log(myProfile);
