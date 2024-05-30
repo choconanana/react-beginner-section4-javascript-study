@@ -141,9 +141,135 @@
 /**
  * オブジェクトの省略記法
  */
-const name="じゃけぇ";
-const age=31;
+// const name="じゃけぇ";
+// const age=31;
 
-// プロパティ名と設定する値の変数名が同じ場合、値を省略できる
-const myProfile={ name, age};
-console.log(myProfile);
+// // プロパティ名と設定する値の変数名が同じ場合、値を省略できる
+// const myProfile={ name, age};
+// console.log(myProfile);
+
+
+/**
+ * スプレッド構文 ...
+ */
+// // 配列の展開
+// const arr1=[1,2];
+// console.log(arr1);
+// console.log(...arr1);
+
+// const sumFunc=(num1,num2)=>console.log(num1+num2);
+// sumFunc(arr1[0],arr1[1]);
+// sumFunc(...arr1);
+
+// // まとめる
+// const arr2=[1,2,3,4,5];
+// const [num1,num2,...arr3]=arr2;
+// console.log(num1);
+// console.log(num2);
+// console.log(arr3);
+
+// // 配列のコピー、結合
+// const arr4=[10,20];
+// const arr5=[30,40];
+
+// // arr4とarr6は全く別の配列として定義されている
+// const arr6=[...arr4];
+// arr6[0]=100
+// console.log(arr6);
+// console.log(arr4);
+
+// const arr7=[...arr4,...arr5];
+// console.log(arr7);
+
+// // 以下の配列コピーの方法はよくない(同じ中身を参照しているのでarr4の中身も書き変わる)
+// const arr8=arr4;
+// arr8[0]=100;
+// console.log(arr4);
+
+
+/**
+ * mapやfilterを使った配列の処理
+ */
+// const nameArr=["田中","山田","じゃけぇ"];
+// for (let index = 0; index < nameArr.length; index++) {
+//     console.log(`${index+1}番目は${nameArr[index]}です`);
+// }
+
+// nameArr.map((name)=>console.log(name));
+// // mapは第2引数にインデックスをとれる
+// nameArr.map((name,index)=>console.log(`${index+1}番目は${name}です`));
+
+// // mapで新しい配列を生成できる
+// const nameArr2=nameArr.map((name)=>{
+//     return name;
+// });
+// console.log(nameArr2);
+
+// // filterはreturnの後に条件式を書く
+// const numArr=[1,2,3,4,5];
+// const newNumArr=numArr.filter((num)=>{
+//     return num%2===1;
+// });
+// console.log(newNumArr);
+
+// const newNameArr=nameArr.map((name)=>{
+//     if(name==="じゃけぇ"){
+//         return name;
+//     }else{
+//         return `${name}さん`;
+//     }
+// })
+// console.log(newNameArr);
+
+
+/**
+ * 三項演算子
+ */
+// ある条件 ? 条件がtrueの時 : 条件がfalseの時
+// const val1=1>2 ? "trueです" : "falseです";
+// console.log(val1);
+
+// const num=1300;
+// console.log(num.toLocaleString());
+
+// // typeofは型の判定ができる
+// const formattedNum=typeof num==='number' ? num.toLocaleString(): "数値を入力してください";
+// console.log(formattedNum);
+
+// const checkSum=(num1,num2)=>{
+//     return num1+num2>100 ? "100を超えています!":"許容範囲内です";
+// }
+// console.log(checkSum(60,50));
+
+
+/**
+ * 論理演算子の本当の意味を知ろう $$ ||
+ */
+// truthy,falsyについて
+// "ABC" 0 10 undefined null false NaN "" [] {}
+// どれがtruthyでどれがfalsyか理解しておこう
+// const val="ABC";
+// if(val){
+//     console.log("valはtruthyです");
+// }else{
+//     console.log("valはfalsyです");
+// }
+
+const flag1=true;
+const flag2=false;
+if(flag1 || flag2){
+    console.log("1か2はtrueになります");
+}
+if(flag1 && flag2){
+    console.log("1も2もtrueになります");
+}
+
+// || は左側がtruthyの時その時点で返却する
+const num=undefined;
+const fee=num || "金額未設定です";
+console.log(fee);
+
+// && は左側がfalsyの時その時点で返却する
+const num2="ABC";
+const fee2=num2 && "何か設定されました";
+console.log(fee2);
